@@ -10,4 +10,4 @@ BEGIN {
 	delete ARGV[1]
 }
 
-length($0) == count {}
+length($0) == count
