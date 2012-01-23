@@ -2,12 +2,14 @@
 
 BEGIN {
 	if (ARGC < 2) {
-		print "Usage: pick <length of line>" > "/dev/stderr"
+		print "Usage: pick <length of line> [files]" > "/dev/stderr"
 		exit	
 	}
 
 	count = ARGV[1]
-	delete ARGV[1]
+	for (i = 2; i < ARGC; i++)
+		ARGV[i - 1] = ARGV[i]
+	ARGC--
 }
 
 length($0) == count
