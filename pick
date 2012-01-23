@@ -2,8 +2,8 @@
 
 BEGIN {
 	if (ARGC < 2) {
-		print "Usage: pick <length of line>";
-		exit;	
+		print "Usage: pick <length of line>" > "/dev/stderr"
+		exit	
 	}
 
 	count = ARGV[1]
