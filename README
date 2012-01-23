@@ -1,0 +1,47 @@
+Logtools
+========
+
+This is a collection of tools, which I've noticed I am writing over and over again.
+
+lens
+----
+
+lens outputs a distribution of the line lengths in input. This is useful if
+you are trying to find a certain type of a problem. For example,
+
+    grep ERROR -r logs
+
+may yield several instances of a repeated problem. This noise then hides the
+interesting error messages. Using lens as a filter, such as in
+
+    grep ERROR -r logs|lens
+
+gives you a table of error lenghts.
+
+    183 6
+    184 15
+    185 31
+    186 14
+    187 6
+    194 15
+    195 116
+    196 542
+    197 2111
+    198 3349
+    199 2041
+    200 1521
+    201 207
+    294 8
+    295 1
+
+In well-formatted log files, lines that have a same number of characters
+represent the same error. You can then use pick to find your culprit.
+
+pick
+----
+
+pick selects lines of specified length. Using the above example,
+
+    grep ERROR -r logs|pick 294
+
+would print out the eight lines whose length is 294 characters.
