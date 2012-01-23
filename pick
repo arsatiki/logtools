@@ -6,8 +6,8 @@ BEGIN {
 		exit;	
 	}
 
-	count = ARGV[1];
-	delete ARGV[1];
+	count = ARGV[1]
+	delete ARGV[1]
 }
 
 length($0) == count {}

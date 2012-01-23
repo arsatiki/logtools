@@ -1,7 +1,7 @@
 #!/usr/bin/awk -f
 
 {
-   lens[length($0)]++;
+   lens[length($0)]++
 }
 
 END {
