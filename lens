@@ -1,0 +1,10 @@
+#!/usr/bin/awk -f
+
+{
+   lens[length($0)]++;
+}
+
+END {
+	for (len in lens)
+		print len, lens[len]
+}
